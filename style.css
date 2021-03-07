@@ -61,7 +61,7 @@ ul.cat-facts li{
     text-align: center;
     padding: 40px 15% 0 15%;
     text-decoration: none;
-    font-family: 'Amatic SC', cursive;
+    /*font-family: 'Amatic SC', cursive;*/
     transition: transform .2s;
 }
 
