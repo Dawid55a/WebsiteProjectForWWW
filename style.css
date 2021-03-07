@@ -2,8 +2,10 @@ body{
     margin: 0;
     padding: 0;
     font-size: 20px;
+    font-family: 'Lato', sans-serif;
 }
 
+/*Navigation menu*/
 ul.top-nav {
     list-style-type: none;
     margin: 0;
@@ -20,7 +22,7 @@ ul.top-nav li a {
     text-align: center;
     padding: 14px 14px;
     text-decoration: none;
-    font-family: 'Lato', sans-serif;
+
 }
 
 ul.top-nav li a:hover:not(.active) {background-color: #000000;}
@@ -29,14 +31,44 @@ ul.top-nav li a.active {background-color: #00aa15;}
 
 ul.top-nav li.right {float: right;}
 
-@media screen and (max-width: 900px) {
-    ul.top-nav li.right,
-    ul.top-nav li {float: none;}
-}
-
 .right{
     float: right;
 }
+/*Navigation menu*/
+
+.content h1,a{
+    display: block;
+    text-align: center;
+    padding: 40px 15% 0 15%;
+
+}
+
+
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: rgba(76,76,76,0.50);
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+}
+
+
+/*Responsiveness*/
+@media screen and (max-width: 900px) {
+    ul.top-nav li.right,
+    ul.top-nav li {float: none;}
+
+    div.content h1,a{
+        padding: 40px 10px 0 10px;
+    }
+}
+/*Responsiveness*/
+
 
 /*Menu*/
 
