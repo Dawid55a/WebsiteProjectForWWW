@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lato&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Site</title>
 
@@ -20,10 +20,41 @@
     </ul>
 </nav>
 
+<div class="cats">
+    <h1>Kot jest najleszym przyjacielem informatyka, więc dlaczego nie dowiedzieć się o nim więcej?</h1>
+    <ul class="cat-facts">
+    </ul>
+</div>
+
+
 <footer class="footer">
     Copyright 2021 by Dawid Kiełkowski
 </footer>
 
+<!--<script src="Scripts/CatFactsAPI.js"></script>-->
+<script>
+    async function main() {
+        async function getData() {
+            return await fetch("https://cat-fact.herokuapp.com/facts").then(r => r.json());
+        }
 
+        let data = await getData();
+        console.log(data);
+
+        let main_block = document.getElementsByClassName('cat-facts')[0];
+
+        for (let i = 0; i < data.length; i++) {
+
+            main_block.innerHTML += '<li>' + data[i].text + '</li>';
+        }
+    }
+    main();
+
+    //
+
+
+
+
+</script>
 </body>
 </html>
