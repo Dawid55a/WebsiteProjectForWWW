@@ -1,9 +1,11 @@
 body, html{
     margin: 0;
-    padding: 0;
+    padding: 0 0 50px 0;
     height: 100%;
     width: 100%;
     font-size: 20px;
+    min-height:100%;
+    position:relative;
     font-family: 'Lato', sans-serif;
 }
 
@@ -57,9 +59,6 @@ ul.top-nav li.right {float: right;}
 
 }
 
-
-
-
 .cats h1{
     display: block;
     text-align: center;
@@ -77,14 +76,14 @@ ul.cat-facts {
 ul.cat-facts li{
     display: block;
     text-align: center;
-    padding: 40px 15% 0 15%;
+    padding: 40px 15% 10px 15%;
     text-decoration: none;
     /*font-family: 'Amatic SC', cursive;*/
     transition: transform .2s;
 }
 
 .footer{
-    position: sticky;
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -92,12 +91,12 @@ ul.cat-facts li{
     background-color: rgba(76,76,76,0.30);
     text-align: center;
     font-size: 15px;
-    padding: 10px 0 10px 0;
+    height: 50px;
 }
 
 @media screen and (min-width: 900px){
     ul.cat-facts li:hover{
-        transform: scale(1.2);
+        transform: scale(1.3);
     }
 }
 
