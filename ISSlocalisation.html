@@ -29,17 +29,19 @@
 </footer>
 <script>
 
-    async function getData() {
-        return await fetch("http://api.open-notify.org/iss-now.json").then(r => r.json());
-    }
-
     async function initMap() {
+
+        async function getData() {
+            return await fetch("http://api.open-notify.org/iss-now.json")
+                        .then(r => r.json());
+            }
+
         var data = await getData();
         console.log(data.iss_position.latitude);
         var options = {
             zoom:8,
-            center:{    lat: parseFloat(data.iss_position.latitude),
-                        lng: parseFloat(data.iss_position.longitude)}
+            center:{    lat: parseFloat(data.iss_position.latitude)+1,
+                        lng: parseFloat(data.iss_position.longitude)+1}
         }
 
         map = new google.maps.Map(document.getElementById("map"),options);
@@ -53,23 +55,41 @@
             icon:'Resources/rsz_station.png'
         });
 
-        var infoWindow = new google.maps.InfoWindow({
-            content:'Aktualne położenie : '+ "<br>" +
-                'latitude: ' + data.iss_position.latitude + '<br>' +
-                'longitude: ' + data.iss_position.longitude
-        })
+        // const sleep = (milliseconds) => {
+        //     return new Promise(resolve => setTimeout(resolve, milliseconds))
+        // }
+        while (true){
+            // await sleep(500);
+            data = await getData();
+            marker.setPosition(new google.maps.LatLng(
+                parseFloat(data.iss_position.latitude),
+                parseFloat(data.iss_position.longitude)
+            ))
+            map.panTo(new google.maps.LatLng(
+                parseFloat(data.iss_position.latitude),
+                parseFloat(data.iss_position.longitude)
+            ))
+            console.log(marker);
+        }
+        // var infoWindow = new google.maps.InfoWindow({
+        //     content:'Aktualne położenie : '+ "<br>" +
+        //         'latitude: ' + data.iss_position.latitude + '<br>' +
+        //         'longitude: ' + data.iss_position.longitude
+        // })
+        //
+        // marker.addListener('click', function (){
+        //     infoWindow.open(map, marker);
+        // })
 
-        marker.addListener('click', function (){
-            infoWindow.open(map, marker);
-        })
+        // map.addListener("center_changed", () => {
+        //     // 3 seconds after the center of the map has changed, pan back to the
+        //     // marker.
+        //     window.setTimeout(() => {
+        //         map.panTo(marker.getPosition());
+        //     }, 5000);
+        // });
     }
-
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVYF9hrVgfZa9nYNBgrj6I8FnI8hYJhCg&callback=initMap&libraries=&v=weekly"></script>
-
-
-
-
-
 </body>
 </html>
