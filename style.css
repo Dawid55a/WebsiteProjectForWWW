@@ -3,7 +3,6 @@ body{
     padding: 0;
     font-size: 20px;
 }
-body {margin: 0;}
 
 ul.top-nav {
     list-style-type: none;
@@ -29,7 +28,7 @@ ul.top-nav li a.active {background-color: #248d24;}
 
 ul.top-nav li.right {float: right;}
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     ul.top-nav li.right,
     ul.top-nav li {float: none;}
 }
