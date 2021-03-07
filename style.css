@@ -9,7 +9,7 @@ ul.top-nav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #4c4c4c;
 }
 
 ul.top-nav li {float: left;}
@@ -18,13 +18,14 @@ ul.top-nav li a {
     display: block;
     color: #ffffff;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 14px;
     text-decoration: none;
+    font-family: 'Lato', sans-serif;
 }
 
-ul.top-nav li a:hover:not(.active) {background-color: #111111;}
+ul.top-nav li a:hover:not(.active) {background-color: #000000;}
 
-ul.top-nav li a.active {background-color: #248d24;}
+ul.top-nav li a.active {background-color: #00aa15;}
 
 ul.top-nav li.right {float: right;}
 
@@ -37,9 +38,6 @@ ul.top-nav li.right {float: right;}
     float: right;
 }
 
-.active {
-    background-color: #4CAF50;
-}
 /*Menu*/
 
 /** {*/
