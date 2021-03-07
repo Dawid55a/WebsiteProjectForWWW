@@ -9,6 +9,7 @@
     <title>Main Site</title>
 
 </head>
+
 <body>
 <nav class="menu">
     <ul class="top-nav">
@@ -20,10 +21,54 @@
     </ul>
 </nav>
 
+<div id="map"></div>
+
 
 <footer class="footer">
     Copyright 2021 by Dawid Kiełkowski
 </footer>
+<script>
+
+    async function getData() {
+        return await fetch("http://api.open-notify.org/iss-now.json").then(r => r.json());
+    }
+
+    async function initMap() {
+        var data = await getData();
+        console.log(data.iss_position.latitude);
+        var options = {
+            zoom:8,
+            center:{    lat: parseFloat(data.iss_position.latitude),
+                        lng: parseFloat(data.iss_position.longitude)}
+        }
+
+        map = new google.maps.Map(document.getElementById("map"),options);
+
+        var marker = new google.maps.Marker({
+            position:{
+                lat: parseFloat(data.iss_position.latitude),
+                lng: parseFloat(data.iss_position.longitude)
+            },
+            map:map,
+            icon:'Resources/rsz_station.png'
+        });
+
+        var infoWindow = new google.maps.InfoWindow({
+            content:'Aktualne położenie : '+ "<br>" +
+                'latitude: ' + data.iss_position.latitude + '<br>' +
+                'longitude: ' + data.iss_position.longitude
+        })
+
+        marker.addListener('click', function (){
+            infoWindow.open(map, marker);
+        })
+    }
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVYF9hrVgfZa9nYNBgrj6I8FnI8hYJhCg&callback=initMap&libraries=&v=weekly"></script>
+
+
+
 
 
 </body>
