@@ -2,43 +2,41 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/CatFacts.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lato&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Site</title>
+    <title>Ciekawostki o kotach</title>
 
 </head>
 <body>
-<nav class="menu">
-    <ul class="top-nav">
-        <li><a class="active" href="index.html">Strona Główna</a></li>
-        <li><a href="ISSlocalisation.html">Lokalizacja ISS</a></li>
-        <li><a href="CatFacts.html">Ciekawostki o kotach</a></li>
-        <li><a href="FantasyBooks.html">Może trochę fantasy?</a></li>
-        <li class="right"><a class="active" href="AboutMe.html">O mnie</a></li>
-    </ul>
-</nav>
+    <nav class="menu">
+        <ul class="top-nav">
+            <li><a class="active" href="index.html">Strona Główna</a></li>
+            <li><a href="ISSlocalisation.html">Lokalizacja ISS</a></li>
+            <li><a href="CatFacts.html">Ciekawostki o kotach</a></li>
+            <li><a href="FantasyBooks.html">Może trochę fantasy?</a></li>
+            <li class="right"><a class="active" href="AboutMe.html">O mnie</a></li>
+        </ul>
+    </nav>
+    <div class="content-wrap">
+        <div class="cats">
+            <h1>Kot jest najleszym przyjacielem informatyka, więc dlaczego nie dowiedzieć się o nim więcej?</h1>
+            <ul class="cat-facts">
+            </ul>
+        </div>
 
-<div class="cats">
-    <h1>Kot jest najleszym przyjacielem informatyka, więc dlaczego nie dowiedzieć się o nim więcej?</h1>
-    <ul class="cat-facts">
-    </ul>
-</div>
-
-
-<img src="Resources/cat_meow.gif" alt="cat gif">
-
-
-<footer class="footer">
-    Copyright 2021 by Dawid Kiełkowski
-</footer>
-
-<!--<script src="Scripts/CatFactsAPI.js"></script>-->
+        <img src="Resources/cat_meow.gif" alt="cat gif">
+    </div>
+    <footer class="footer">
+        Copyright 2021 by Dawid Kiełkowski
+    </footer>
+</body>
 <script>
     async function main() {
         async function getData() {
-            return await fetch("https://cat-fact.herokuapp.com/facts").then(r => r.json());
+            return await fetch("https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=5").then(r => r.json());
         }
 
         let data = await getData();
@@ -53,5 +51,4 @@
     }
     main();
 </script>
-</body>
 </html>

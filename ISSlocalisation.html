@@ -2,94 +2,76 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/ISSloc.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Site</title>
+    <title>Lokalizacja ISS</title>
 
 </head>
 
 <body>
-<nav class="menu">
-    <ul class="top-nav">
-        <li><a class="active" href="index.html">Strona Główna</a></li>
-        <li><a href="ISSlocalisation.html">Lokalizacja ISS</a></li>
-        <li><a href="CatFacts.html">Ciekawostki o kotach</a></li>
-        <li><a href="FantasyBooks.html">Może trochę fantasy?</a></li>
-        <li class="right"><a class="active" href="AboutMe.html">O mnie</a></li>
-    </ul>
-</nav>
+    <nav class="menu">
+        <ul class="top-nav">
+            <li><a class="active" href="index.html">Strona Główna</a></li>
+            <li><a href="ISSlocalisation.html">Lokalizacja ISS</a></li>
+            <li><a href="CatFacts.html">Ciekawostki o kotach</a></li>
+            <li><a href="FantasyBooks.html">Może trochę fantasy?</a></li>
+            <li class="right"><a class="active" href="AboutMe.html">O mnie</a></li>
+        </ul>
+    </nav>
 
-<div id="map"></div>
+    <div id="map"></div>
 
+    <div style="min-height: calc(20% - 50px);"></div>
 
-<footer class="footer">
-    Copyright 2021 by Dawid Kiełkowski
-</footer>
+    <footer class="footer">
+        Copyright 2021 by Dawid Kiełkowski
+    </footer>
+</body>
 <script>
 
     async function initMap() {
 
         async function getData() {
-            return await fetch("http://api.open-notify.org/iss-now.json")
+            return await fetch("https://iss-boot.herokuapp.com/iss")
                         .then(r => r.json());
             }
 
         var data = await getData();
-        console.log(data.iss_position.latitude);
+
+        var lat = parseFloat(data.iss_position.latitude);
+        var lng = parseFloat(data.iss_position.longitude);
+
         var options = {
             zoom:8,
-            center:{    lat: parseFloat(data.iss_position.latitude)+1,
-                        lng: parseFloat(data.iss_position.longitude)+1}
+            center:{lat: lat,
+                    lng: lng}
         }
 
-        map = new google.maps.Map(document.getElementById("map"),options);
+        let loc = document.getElementById("map");
+
+        map = new google.maps.Map(loc,options);
 
         var marker = new google.maps.Marker({
             position:{
-                lat: parseFloat(data.iss_position.latitude),
-                lng: parseFloat(data.iss_position.longitude)
+                lat: lat,
+                lng: lng
             },
             map:map,
             icon:'Resources/rsz_station.png'
         });
 
-        // const sleep = (milliseconds) => {
-        //     return new Promise(resolve => setTimeout(resolve, milliseconds))
-        // }
         while (true){
-            // await sleep(500);
             data = await getData();
-            marker.setPosition(new google.maps.LatLng(
-                parseFloat(data.iss_position.latitude),
-                parseFloat(data.iss_position.longitude)
-            ))
-            map.panTo(new google.maps.LatLng(
-                parseFloat(data.iss_position.latitude),
-                parseFloat(data.iss_position.longitude)
-            ))
-            console.log(marker);
+            lat = parseFloat(data.iss_position.latitude);
+            lng = parseFloat(data.iss_position.longitude);
+            marker.setPosition(new google.maps.LatLng(lat, lng))
+            map.panTo(new google.maps.LatLng(lat, lng))
         }
-        // var infoWindow = new google.maps.InfoWindow({
-        //     content:'Aktualne położenie : '+ "<br>" +
-        //         'latitude: ' + data.iss_position.latitude + '<br>' +
-        //         'longitude: ' + data.iss_position.longitude
-        // })
-        //
-        // marker.addListener('click', function (){
-        //     infoWindow.open(map, marker);
-        // })
-
-        // map.addListener("center_changed", () => {
-        //     // 3 seconds after the center of the map has changed, pan back to the
-        //     // marker.
-        //     window.setTimeout(() => {
-        //         map.panTo(marker.getPosition());
-        //     }, 5000);
-        // });
     }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVYF9hrVgfZa9nYNBgrj6I8FnI8hYJhCg&callback=initMap&libraries=&v=weekly"></script>
-</body>
+
 </html>

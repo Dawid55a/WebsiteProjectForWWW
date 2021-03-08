@@ -1,0 +1,15 @@
+#map {
+    display: block;
+    margin: 40px auto;
+    height: 80%;
+    width: 80%;
+}
+
+@media screen and (max-width: 900px) {
+    #map {
+        display: block;
+        margin: 40px auto;
+        height: 80%;
+        width: 95%;
+    }
+}
