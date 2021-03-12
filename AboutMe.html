@@ -2,10 +2,16 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/AboutMe.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/parallax.min.js" type="text/javascript"></script>
+
+
     <title>O mnie</title>
 
 </head>
@@ -20,7 +26,46 @@
         </ul>
     </nav>
 
-    <div class="content-wrap"></div>
+<!--    <div class="content-wrap text-block">-->
+
+<!--        <a class="text-left">Student Uniwersytetu Mikołaja Kopernika w Toruniu na Nie Sa Mo Wi Tym kierunku-->
+<!--        Informatyka, inżynierska. I rok. </a>-->
+<!--        <a class="text-right">Absolwent ZSMEiE, ukończonych z, nie żebym się przechwalał, ale ukończonych z wyróżnieniem :).-->
+<!--        </a>-->
+<!--        <a class="text-center">Zamieszkały w małej wsi w gminie Czernikowo, której dokładną można znaleźć pod rebusem.-->
+<!--            NIE ODDAM TAK ŁATWO SWOJEGO ADRESU!</a>-->
+
+<!--        -->
+<!--    </div>-->
+
+    <section class="image" data-parallax="scroll" data-image-src="Resources/zsmeie_front.jpg"></section>
+
+    <section class="text left">
+        <div class="container">
+            <div class="icon">
+                <span class="fa"><img src="obrazy/dzika_lapa.svg" width="20%"></span>
+            </div>
+            <div class="content">
+                <h2>Edukacja</h2>
+                <p>Absolwent ZSMEiE.</p>
+                <p>Student Uniwersytetu Mikołaja Kopernika w Toruniu na Nie Sa Mo Wi Tym kierunku Informatyka, inżynierska. I rok.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="image" data-parallax="scroll" data-image-src="Resources/zsmeie_front.jpg"></section>
+
+    <section class="text">
+        <div class="container">
+            <div class="icon">
+                <span class="fa"><img src="obrazy/slady_2.png" width="20%"></span>
+            </div>
+            <div class="content">
+                <h2>Zamieszkanie</h2>
+                <p>Zamieszkały w małej wsi w gminie Czernikowo, której dokładną można znaleźć pod rebusem.</p>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
         Copyright 2021 by Dawid Kiełkowski

@@ -1,0 +1,77 @@
+.text-block{
+    display: block;
+}
+h2{
+    color: #ffffff;
+    font-size: 80px;
+}
+p{
+    color: #ffffff;
+    font-size: 20px;
+}
+
+
+/*.text-left{*/
+/*    text-align: left;*/
+/*    display: contents;*/
+/*    border: 2px solid red;*/
+/*    background-color: #ccc;*/
+/*    padding: 10px;*/
+/*    width: 200px;*/
+/*}*/
+/*.text-right{*/
+/*    text-align: right;*/
+/*}*/
+/*.text-center{*/
+/*    text-align: center;*/
+/*}*/
+
+section.image {
+    height: 800px;
+}
+
+section.text {
+    background-color: #161616;
+}
+
+section.text .container {
+    max-width: 80%;
+    padding: 20px;
+    position: relative;
+    margin: 0 auto;
+}
+
+section.text .icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 50%;
+    bottom: 0;
+}
+
+section.text.left .icon {
+    right: 0;
+    left: 50%;
+}
+
+section.text .icon .fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+}
+
+section.text .content {
+    margin-left: 50%;
+}
+
+section.text.left .content {
+    margin-left: 0;
+    margin-right: 50%;
+}
+
+section.text h2 {
+    font-size: 36px;
+    font-weight: normal;
+}
