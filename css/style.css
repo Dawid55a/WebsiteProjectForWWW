@@ -1,26 +1,28 @@
-body, html{
+body, html {
     margin: 0;
     padding: 0 0 50px 0;
     height: 100%;
     width: 100%;
     font-size: 20px;
     min-height: 100vh;
-    position:relative;
+    position: relative;
     font-family: 'Lato', sans-serif;
 }
+
 /*Footer*/
 .content-wrap {
     min-height: calc(100% - 50px);
 }
 
 .footer {
-    background-color: rgba(76,76,76,0.30);
+    background-color: rgba(76, 76, 76, 0.30);
     width: 100%;
     height: 50px;
     text-align: center;
     font-size: 15px;
     color: white;
 }
+
 /*Footer*/
 /*Navigation menu*/
 ul.top-nav {
@@ -31,7 +33,9 @@ ul.top-nav {
     background-color: #4c4c4c;
 }
 
-ul.top-nav li {float: left;}
+ul.top-nav li {
+    float: left;
+}
 
 ul.top-nav li a {
     display: block;
@@ -42,27 +46,38 @@ ul.top-nav li a {
 
 }
 
-ul.top-nav li a:hover:not(.active) {background-color: #000000;}
+ul.top-nav li a:hover:not(.active) {
+    background-color: #000000;
+}
 
-ul.top-nav li a.active {background-color: #00aa15;}
+ul.top-nav li a.active {
+    background-color: #00aa15;
+}
 
-ul.top-nav li.right {float: right;}
-
-.right{
+ul.top-nav li.right {
     float: right;
 }
+
+.right {
+    float: right;
+}
+
 /*Navigation menu*/
 
 /*Responsiveness*/
 @media screen and (max-width: 900px) {
     ul.top-nav li.right,
-    ul.top-nav li {float: none;}
+    ul.top-nav li {
+        float: none;
+    }
 
-    div.cats h1{
+    div.cats h1 {
         padding: 0 10px 0 10px;
     }
-    ul.cat-facts li{
+
+    ul.cat-facts li {
         padding: 40px 10px 0 10px;
     }
 }
+
 /*Responsiveness*/

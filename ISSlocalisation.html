@@ -12,23 +12,23 @@
 </head>
 
 <body>
-    <nav class="menu">
-        <ul class="top-nav">
-            <li><a class="active" href="index.html">Strona Główna</a></li>
-            <li><a href="ISSlocalisation.html">Lokalizacja ISS</a></li>
-            <li><a href="CatFacts.html">Ciekawostki o kotach</a></li>
-            <li><a href="FantasyBooks.html">Może trochę fantasy?</a></li>
-            <li class="right"><a class="active" href="AboutMe.html">O mnie</a></li>
-        </ul>
-    </nav>
+<nav class="menu">
+    <ul class="top-nav">
+        <li><a class="active" href="index.html">Strona Główna</a></li>
+        <li><a href="ISSlocalisation.html">Lokalizacja ISS</a></li>
+        <li><a href="CatFacts.html">Ciekawostki o kotach</a></li>
+        <li><a href="FantasyBooks.html">Może trochę fantasy?</a></li>
+        <li class="right"><a class="active" href="AboutMe.html">O mnie</a></li>
+    </ul>
+</nav>
 
-    <div id="map"><p>Proszę czekać, heroku się rozpędza</p></div>
+<div id="map"><p>Proszę czekać, heroku się rozpędza</p></div>
 
-    <div style="min-height: calc(20% - 50px);"></div>
+<div style="min-height: calc(20% - 50px);"></div>
 
-    <footer class="footer">
-        Copyright 2021 by Dawid Kiełkowski
-    </footer>
+<footer class="footer">
+    Copyright 2021 by Dawid Kiełkowski
+</footer>
 </body>
 <script>
 
@@ -36,8 +36,8 @@
 
         async function getData() {
             return await fetch("https://iss-boot.herokuapp.com/iss")
-                        .then(r => r.json());
-            }
+                .then(r => r.json());
+        }
 
         var data = await getData();
 
@@ -45,25 +45,27 @@
         var lng = parseFloat(data.iss_position.longitude);
 
         var options = {
-            zoom:8,
-            center:{lat: lat,
-                    lng: lng}
+            zoom: 8,
+            center: {
+                lat: lat,
+                lng: lng
+            }
         }
 
         let loc = document.getElementById("map");
 
-        map = new google.maps.Map(loc,options);
+        map = new google.maps.Map(loc, options);
 
         var marker = new google.maps.Marker({
-            position:{
+            position: {
                 lat: lat,
                 lng: lng
             },
-            map:map,
-            icon:'Resources/rsz_station.png'
+            map: map,
+            icon: 'Resources/rsz_station.png'
         });
 
-        while (true){
+        while (true) {
             data = await getData();
             lat = parseFloat(data.iss_position.latitude);
             lng = parseFloat(data.iss_position.longitude);
@@ -72,6 +74,7 @@
         }
     }
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVYF9hrVgfZa9nYNBgrj6I8FnI8hYJhCg&callback=initMap&libraries=&v=weekly"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVYF9hrVgfZa9nYNBgrj6I8FnI8hYJhCg&callback=initMap&libraries=&v=weekly"></script>
 
 </html>

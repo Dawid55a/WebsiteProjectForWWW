@@ -11,27 +11,27 @@
 
 </head>
 <body>
-    <nav class="menu">
-        <ul class="top-nav">
-            <li><a class="active" href="index.html">Strona Główna</a></li>
-            <li><a href="ISSlocalisation.html">Lokalizacja ISS</a></li>
-            <li><a href="CatFacts.html">Ciekawostki o kotach</a></li>
-            <li><a href="FantasyBooks.html">Może trochę fantasy?</a></li>
-            <li class="right"><a class="active" href="AboutMe.html">O mnie</a></li>
+<nav class="menu">
+    <ul class="top-nav">
+        <li><a class="active" href="index.html">Strona Główna</a></li>
+        <li><a href="ISSlocalisation.html">Lokalizacja ISS</a></li>
+        <li><a href="CatFacts.html">Ciekawostki o kotach</a></li>
+        <li><a href="FantasyBooks.html">Może trochę fantasy?</a></li>
+        <li class="right"><a class="active" href="AboutMe.html">O mnie</a></li>
+    </ul>
+</nav>
+<div class="content-wrap">
+    <div class="cats">
+        <h1>Kot jest najleszym przyjacielem informatyka, więc dlaczego nie dowiedzieć się o nim więcej?</h1>
+        <ul class="cat-facts">
         </ul>
-    </nav>
-    <div class="content-wrap">
-        <div class="cats">
-            <h1>Kot jest najleszym przyjacielem informatyka, więc dlaczego nie dowiedzieć się o nim więcej?</h1>
-            <ul class="cat-facts">
-            </ul>
-        </div>
-
-        <img src="Resources/cat_meow.gif" alt="cat gif">
     </div>
-    <footer class="footer">
-        Copyright 2021 by Dawid Kiełkowski
-    </footer>
+
+    <img src="Resources/cat_meow.gif" alt="cat gif">
+</div>
+<footer class="footer">
+    Copyright 2021 by Dawid Kiełkowski
+</footer>
 </body>
 <script>
     async function main() {
@@ -49,6 +49,7 @@
             main_block.innerHTML += '<li>' + data[i].text + '</li>';
         }
     }
+
     main();
 </script>
 </html>
