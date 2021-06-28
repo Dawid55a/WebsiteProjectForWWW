@@ -7,9 +7,14 @@ h2 {
     font-size: 80px;
 }
 
-p {
+p, li {
     color: #ffffff;
     font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
 }
 
 section.image {

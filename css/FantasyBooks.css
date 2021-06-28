@@ -1,0 +1,44 @@
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.content-wrap h1 {
+    display: block;
+    text-align: center;
+    padding: 20px 15% 0 15%;
+}
+
+.book {
+    display: flex;
+    margin: 10px 20% 10px 20%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 250px;
+}
+
+.text {
+    float: right;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-left: 20px;
+    width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+
+    .book {
+        flex-direction: column;
+    }
+
+}

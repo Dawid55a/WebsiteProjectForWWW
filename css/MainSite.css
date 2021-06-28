@@ -16,8 +16,9 @@ ul.content-ul li {
     text-align: center;
     padding: 40px 15% 10px 15%;
     text-decoration: none;
-    /*font-family: 'Amatic SC', cursive;*/
+    font-family: 'Amatic SC', cursive;
     transition: transform .2s;
+    font-size: 30px;
 }
 
 li a{
